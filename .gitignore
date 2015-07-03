@@ -1,5 +1,3 @@
 .idea/
 db.sqlite3
 __pycache__
-superlists/settings.py
-superlists/old_settings.py
