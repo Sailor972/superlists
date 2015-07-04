@@ -7,3 +7,11 @@ class ItemFormTest(TestCase):
         form = ItemForm()
         self.assertIn('placeholder="Enter a To-Do item"', form.as_p())
         self.assertIn('class="form-control input-lg"', form.as_p())
+
+    def test_form_validation_for_blank_items(self):
+        form = ItemForm(data={'text': ''})
+        self.assertFalse(form.is_valid())
+        self.assertEqual(
+            form.errors['text'],
+            ["You can't have an empty list item"]
+        )
