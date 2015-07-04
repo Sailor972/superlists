@@ -1,6 +1,8 @@
 from django import forms
 from lists.models import Item
 
+EMPTY_ITEM_ERROR = "You can't have an empty list item"
+
 
 class ItemForm(forms.models.ModelForm):
 
@@ -14,5 +16,5 @@ class ItemForm(forms.models.ModelForm):
             }),
         }
         error_messages = {
-            'text': {'required': "You can't have an empty list item"}
+            'text': {'required': EMPTY_ITEM_ERROR}
         }
